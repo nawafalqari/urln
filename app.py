@@ -33,5 +33,6 @@ def url(url):
     if url in urlsData:
         return redirect(urlsData[url])
     return '<h1 style="font-family: sans-serif">404</h1><p>Page not found</p>'
-    
-app.run('0.0.0.0', port=5001)
+
+if __name__ == '__main__':
+	app.run('0.0.0.0', port=5001)
