@@ -1,42 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block head %}
+<title>Your URL Was Saved</title>
+<style>
+    body {
+        background-color: rgb(0, 0, 34);
+        color: white;
+    }
 
-<head>
-    <link rel="icon" href=" {{ url_for('static', filename='logopngwhite.png') }}">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Your URL Was Saved</title>
-    <style>
-        body {
-            background-color: rgb(53, 50, 50);
-            color: white;
-        }
+    .container h3 {
+        margin: 30px 0 10px;
+    }
+</style>
+{% endblock %}
 
-        .container h3 {
-            margin: 30px 0 10px;
-        }
-    </style>
-</head>
+{% block body %}
+<div class="container">
+    <h3>Your URL Was Saved Successfully</h3>
+    <table border="1"
+        style="background-color:white; border-collapse:collapse; border:3px solid #007bff; color:#000000; width:100%"
+        cellpadding="5" cellspacing="3">
+        <tr>
+            <td>Your URL:</td>
+            <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
+        </tr>
+        <tr>
+            <td>Shortened URL</td>
+            <td><a href="{{ shortURL }}" target="_blank">{{ request.host + '/' + shortURL }}</a></td>
+        </tr>
+    </table>
 
-<body>
-    <div class="container">
-        <h3>Your URL Was Saved Successfully</h3>
-        <table border="1"
-            style="background-color:white; border-collapse:collapse; border:3px solid #007bff; color:#000000; width:100%"
-            cellpadding="5" cellspacing="3">
-            <tr>
-                <td>Your URL:</td>
-                <td><a href="{{ url }}">{{ url }}</a></td>
-            </tr>
-            <tr>
-                <td>Shortened URL</td>
-                <td><a href="{{ shortURL }}">{{ request.host + '/' + shortURL }}</a></td>
-            </tr>
-        </table>
-
-    </div>
-</body>
-
-</html>
+</div>
+{% endblock %}
